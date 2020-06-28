@@ -32,7 +32,12 @@ exports.postSignup = async (req, res, next) => {
         return res.status(422).redirect("/auth/signup");
       });
     }
-
+    if (!username.match(/^[^a-zA-Z0-9]+$/)) {
+      req.flash("error", "special character in username is not allowed!");
+      return req.session.save((err) => {
+        return res.status(422).redirect("/auth/signup");
+      });
+    }
     const hashedPw = await bcryptjs.hash(password, 8);
     const user = await new User({
       fname,
