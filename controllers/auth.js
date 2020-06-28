@@ -32,6 +32,13 @@ exports.postSignup = async (req, res, next) => {
         return res.status(422).redirect("/auth/signup");
       });
     }
+    let format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+    if (format.test(username)) {
+      req.flash("error", "special character in username is not allowed!");
+      return req.session.save((err) => {
+        return res.status(422).redirect("/auth/signup");
+      });
+    }
     // if (!username.match(/^[^a-zA-Z0-9]+$/)) {
     //   req.flash("error", "special character in username is not allowed!");
     //   return req.session.save((err) => {
@@ -44,7 +51,7 @@ exports.postSignup = async (req, res, next) => {
       lname,
       email,
       password: hashedPw,
-      username,
+      username: username.replace(" ", ""),
     });
     await user.save();
     req.flash("success", "signup successfully");
