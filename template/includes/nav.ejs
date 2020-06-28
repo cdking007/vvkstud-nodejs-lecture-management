@@ -3,10 +3,11 @@
   <div class="m-outer-nav">
     <div class="m-nav-per" id="m-navs">
       <ul class="m-nav-items">
-        <li class="m-nav-item"><a href="#">Home</a></li>
-        <li class="m-nav-item"><a href="#">Home</a></li>
-        <li class="m-nav-item"><a href="#">Home</a></li>
-        <li class="m-nav-item"><a href="#">Home</a></li>
+        <li class="m-nav-item"><a href="/">Home</a></li>
+        <form action="/logout" method="POST">
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+          <li class="m-nav-item"><button class="cst-btn-2">Logout</button></li>
+        </form>
       </ul>
     </div>
   </div>
