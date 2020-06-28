@@ -1,0 +1,56 @@
+<%- include('../includes/head.ejs') %>
+<body>
+    <%- include('../includes/nav.ejs') %>
+
+    <div class="main-container">
+        <div class="container card mt-2">
+            <h1>Edit User</h1>
+            <% if(errorMessage){ %>
+              <div class="alert alert-danger" role="alert">    
+                  <%= errorMessage %>
+                </div>
+          <% } %>
+          <% if(successMessage){ %>
+              <div class="alert alert-success" role="alert">
+                  <%= successMessage %>
+                </div>
+          <% } %>
+            <form action="/admin/user/edit" method="POST">
+              
+              <input type="hidden" name="userid" value="<%= user._id %>">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" placeholder="username"  name="username" value="<%= user.username %>" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">email</label>
+                    <input type="email" class="form-control" id="email" placeholder="email"  name="email" value="<%= user.email %>" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="fname">first name</label>
+                    <input type="text" class="form-control" id="fname" placeholder="fname"  name="fname" value="<%= user.fname %>" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="lname">Last name</label>
+                    <input type="text" class="form-control" id="lname" placeholder="lname"  name="lname" value="<%= user.lname %>" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="status">Status</label>
+                    <input type="text" class="form-control" id="status" placeholder="status"  name="status" value="<%= user.status %>" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="role">role</label>
+                    <input type="text" class="form-control" id="role" placeholder="role"  name="role" value="<%= user.role %>" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="div">Class (value must be:[a,b,c])</label>
+                    <input type="text" class="form-control" id="div" placeholder="div"  name="div" value="<%= user.class %>" required>
+                  </div>
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+                  <button class="btn btn-block btn-success">Submit</button>
+            </form>
+        </div>
+    </div>    
+</body>
+</html>

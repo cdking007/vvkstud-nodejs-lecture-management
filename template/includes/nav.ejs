@@ -1,0 +1,27 @@
+<div class="mobile-nav">
+  <div><i class="fa fa-bars icon" id="m-handle"></i></div>
+  <div class="m-outer-nav">
+    <div class="m-nav-per" id="m-navs">
+      <ul class="m-nav-items">
+        <li class="m-nav-item"><a href="#">Home</a></li>
+        <li class="m-nav-item"><a href="#">Home</a></li>
+        <li class="m-nav-item"><a href="#">Home</a></li>
+        <li class="m-nav-item"><a href="#">Home</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- <i class="close-icon">x</i> -->
+  <h1 class="m-nav--logo txt-primary">VVKSTUD</h1>
+</div>
+<nav class="main-nav">
+  <h1 class="main-nav--logo">VVKSTUD</h1>
+  <ul class="nav-items">
+    <li class="nav-itme"><a href="/">Home</a></li>
+    <form action="/logout" method="POST">
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+
+      <li class="nav-itme"><button class="cst-btn-2">Logout</button></li>
+    </form>
+  </ul>
+</nav>

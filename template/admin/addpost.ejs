@@ -1,0 +1,41 @@
+<%- include('../includes/head.ejs') %>
+<body>
+    <%- include('../includes/nav.ejs') %>
+
+    <div class="main-container">
+        <div class="container card mt-2">
+            <h1>Add Post</h1>
+            <form action="/admin/addpost" method="POST">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" id="title" placeholder="Enter Your title" name="title">
+                  </div>
+                  <div class="form-group">
+                    <label for="title">Subjects (seprated by ,)</label>
+                    <input type="text" class="form-control" id="subjects" placeholder="Enter Subjects" name="subjects">
+                  </div>
+                  <div class="form-group">
+                    <label for="div">Select Divition</label>
+                    <select class="form-control" id="div" name="div">
+                      <option value="a">TY-A</option>
+                      <option value="b">TY-B</option>
+                      <option value="c">TY-C</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="day">Lecture date</label>
+                    <input type="date" class="form-control" id="day" placeholder="select the date" min="today" name="day">
+                  </div>
+                  <div class="form-group">
+                    <label for="videoUrl">videoUrl(gdrive only)</label>
+                    <input type="url" class="form-control" id="videoUrl" placeholder="Enter the url" name="videoUrl">
+                  </div>
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+                  <button class="btn btn-block btn-success">Submit</button>
+            </form>
+        </div>
+        
+    </div>
+</body>
+</html>

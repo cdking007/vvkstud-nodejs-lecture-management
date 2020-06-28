@@ -1,0 +1,40 @@
+<!-- header -->
+<%- include('includes/head.ejs') %>
+<!-- navbar -->
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-12 col-md-6 col-lg-6 full-screen">
+            <div class="main--login__side1">
+              <div class="main--login__inner1">
+                <% if(errorMessage){ %>
+                    <div class="alert alert-danger" role="alert">    
+                        <%= errorMessage %>
+                      </div>
+                <% } %>
+                <% if(successMessage){ %>
+                    <div class="alert alert-success" role="alert">
+                        <%= successMessage %>
+                      </div>
+                <% } %>
+                <h1>Login</h1>
+                <form action="/auth/login" method="POST">
+                <input type="text" placeholder="username" class="cst-input" name="username" id="username"/>
+                <input type="password" placeholder="password" class="cst-input" name="password" id="password" />
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <button class="btn btn-block cst-btn">Login</button>
+            </form>
+                <p>
+                  Don't have account?
+                  <a href="/auth/signup" class="text-white">Create now!</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-6 full-screen">
+            <div class="main--login__side2"></div>
+          </div>
+        </div>
+      </div>
+</body>

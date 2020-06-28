@@ -1,0 +1,43 @@
+<!-- header -->
+<%- include('includes/head.ejs') %>
+<!-- navbar -->
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-6 full-screen">
+              <div class="main--login__side1">
+                <div class="main--login__inner1">
+                    <% if(errorMessage){ %>
+                        <div class="alert alert-danger" role="alert">    
+                            <%= errorMessage %>
+                          </div>
+                    <% } %>
+                    <% if(successMessage){ %>
+                        <div class="alert alert-success" role="alert">
+                            <%= successMessage %>
+                          </div>
+                    <% } %>
+                  <h1>Signup</h1>
+                  <form action="/auth/signup" method="POST">
+                  <input type="text" placeholder="First name" class="cst-input" name="fname" id="fname" />
+                  <input type="text" placeholder="Last name" class="cst-input" name="lname" id="lname"/>
+                  <input type="text" placeholder="username" class="cst-input" name="username" id="username" />
+                  <input type="email" placeholder="Email" class="cst-input" name="email" id="email" />
+                  <input type="password" placeholder="password" class="cst-input" name="password" id="password" />
+                  <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                  <button class="btn btn-block cst-btn">Signup</button>
+                </form>
+                  <p>
+                    Already have account?
+                    <a href="/auth/login" class="text-white">Login!</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6 full-screen">
+              <div class="main--login__side2"></div>
+            </div>
+          </div>
+      </div>
+</body>

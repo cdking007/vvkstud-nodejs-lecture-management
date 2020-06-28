@@ -1,0 +1,21 @@
+<%- include('./includes/head.ejs') %>
+<body>
+    <%- include('./includes/nav.ejs') %>
+
+    <div class="main-container">
+        <div class="mt-2" style="margin: 20px;">
+            <iframe
+              src="<%= post.videoUrl %>"
+              width="100%"
+              height="520"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="card bg-secondary txt-primary" style="margin: 20px;">
+            <h1><%=  post.title %></h1>
+            <p>Subjects: <%= post.subjects %></p>
+            <p>Date: <%= post.date.toDateString() %></p>
+          </div>
+    </div>
+</body>
+</html>
